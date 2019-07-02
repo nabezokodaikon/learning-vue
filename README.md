@@ -1,3 +1,3 @@
 # Learning Vue.js
 ## Reference
-* [The Progressive JavaScript Framework](https://jp.vuejs.org/)
+* [Vue.js入門](https://www.amazon.co.jp/Vue-js%E5%85%A5%E9%96%80-%E5%9F%BA%E7%A4%8E%E3%81%8B%E3%82%89%E5%AE%9F%E8%B7%B5%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E9%96%8B%E7%99%BA%E3%81%BE%E3%81%A7-%E5%B7%9D%E5%8F%A3-%E5%92%8C%E4%B9%9F/dp/4297100916/ref=sr_1_1?adgrpid=57180561241&gclid=Cj0KCQjwgezoBRDNARIsAGzEfe709tCmQZ8K6jdw95GJXmaqZb1kKPuPiRHkXz8HQ5XukmApvL2kYVwaAiA0EALw_wcB&hvadid=338576620688&hvdev=c&hvlocphy=1009461&hvnetw=g&hvpos=1t1&hvqmt=e&hvrand=5040587207557802925&hvtargid=aud-759242200046%3Akwd-580442716773&hydadcr=15819_11177362&jp-ad-ap=0&keywords=vue+js+%E5%85%A5%E9%96%80&qid=1562068904&s=gateway&sr=8-1)
