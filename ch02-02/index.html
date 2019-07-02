@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>はじめてのVue.js</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ message }}</p>
+    </div>
+
+    <script>
+      console.assert(typeof Vue != "undefined");
+      new Vue({
+        el: "#app",
+        data: {
+          message: "こんにちは!"
+        }
+      });
+    </script>
+  </body>
+</html>
