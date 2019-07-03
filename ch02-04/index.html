@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>はじめてのVue.js</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+  </head>
+  <body>
+
+    <div id="app">
+      <p>{{ name }}</p>
+      <button @click="greet">
+        あいさつする
+      </button>
+    </div>
+
+    <script>
+      const vm = new Vue({
+        data: {
+          name: "taro",
+          greet: function() {
+            alert(`Hello, this.name`);
+          }
+        }
+      });
+      vm.$mount("#app");
+    </script>
+
+  </body>
+</html>
