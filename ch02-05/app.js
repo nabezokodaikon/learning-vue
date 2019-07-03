@@ -20,6 +20,14 @@ const vm = new Vue({
   el: "#app",
   data: {
     items: items
+  },
+  filters: {
+    numberWithDelimeter: function(value) {
+      if (!value) {
+        return "0";
+      }
+      return value.toString().replace(/(\d)(?=(\d{3})+$)/g, "$1");
+    }
   }
 });
 
