@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue.js SPAのサンプルアプリケーション</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+  </head>
+  <body>
+
+    <div id="app">
+      <nav>
+        <router-link to="/top">トップページ</router-link>
+        <router-link to="/users">ユーザー一覧ページ</router-link>
+      </nav>
+      <router-view></router-view>
+    </div>
+
+    <script type="text/x-template" id="user-list">
+      <div>ユーザー一覧ページです。</div>
+    </script>
+
+    <script>
+      const UserList = {
+        template: "#user-list"
+      };
+
+      const router = new VueRouter({
+        routes: [
+          {
+            path: "/top",
+            component: {
+              template: "<div>トップページです。</div>"
+            }
+          },
+          {
+            path: "/users",
+            component: UserList
+          }
+        ]
+      });
+
+      const app = new Vue({
+        router: router
+      }).$mount("#app");
+    </script>
+
+  </body>
+</html>
