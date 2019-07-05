@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vue Router</title>
+    <title>Vue.js SPAのサンプルアプリケーション</title>
     <meta charset="utf-8">
     <script src="https://unpkg.com/vue@2.6.10"></script>
     <script src="https://unpkg.com/vue-router@3.0.1"></script>
   </head>
   <body>
+
+    <div id="app">
+      <router-link to="/top">トップページ</router-link>
+      <router-link to="/users">ユーザー一覧ページ</router-link>
+      <router-view></router-view>
+    </div>
 
     <script src="app.js"></script>
 
