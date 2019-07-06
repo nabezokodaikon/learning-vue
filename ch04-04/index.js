@@ -1,4 +1,85 @@
-var UserList = {
+var Auth = {
+  login: function(email, pass, cb) {
+    setTimeout(() => {
+      if (email === "vue@example.com" && pass === "vue") {
+        localStorage.token = Math.random().toString(36).substring(7);
+        if (cb) {
+          cb(true);
+        }
+      } else {
+        if (cb) {
+          cb(false);
+        }
+      }
+    }, 0);
+  },
+  logout: function() {
+    delete localStorage.token;
+  },
+  loggedIn: function() {
+    return !!localStorage.token;
+  }
+};
+
+const userData = [
+  {
+    id: 1,
+    name: "Takuya Tejima",
+    description: "東南アジアで働くエンジニアです。"
+  },
+  {
+    id: 2,
+    name: "Yohei Noda",
+    description: "アウトドア・フットサルが趣味のエンジニアです。"
+  }
+];
+
+const getUsers = callback => {
+  setTimeout(() => {
+    callback(null, userData);
+  }, 1000);
+};
+
+const getUser = (userId, callback) => {
+  setTimeout(() => {
+    var filteredUsers = userData.filter(user => {
+      return user.id === parseInt(userId, 10);
+    });
+    callback(null, filteredUsers && filteredUsers[0]);
+  }, 1000);
+};
+
+const postUser = (params, callback) => {
+  setTimeout(() => {
+    params.id = userData.length + 1;
+    userData.push(params)
+    callback(null, params);
+  }, 1000);
+};
+
+const Login = {
+  template: "#login",
+  data: function() {
+    return {
+      email: "vue@example.com",
+      pass: "",
+      error: false
+    };
+  },
+  methods: {
+    login: function() {
+      Auth.login(this.email, this.pass, (loggedIn => {
+        if (!loggedIn) {
+          this.error = true;
+        } else {
+          this.$router.replace(this.$route.query.redirect || "/");
+        }
+      }).bind(this))
+    }
+  }
+};
+
+const UserList = {
   template: "#user-list",
   data: function() {
     return {
@@ -28,7 +109,7 @@ var UserList = {
   }
 }
 
-var UserDetail = {
+const UserDetail = {
   template: "#user-detail",
   data: function() {
     return {
@@ -58,7 +139,7 @@ var UserDetail = {
   }
 }
 
-var UserCreate = {
+const UserCreate = {
   template: "#user-create",
   data: function() {
     return {
@@ -100,29 +181,6 @@ var UserCreate = {
   }
 };
 
-var Auth = {
-  login: function(email, pass, cb) {
-    setTimeout(() => {
-      if (email === "vue@example.com" && pass === "vue") {
-        localStorage.token = Math.random().toString(36).substring(7);
-        if (cb) {
-          cb(true);
-        }
-      } else {
-        if (cb) {
-          cb(false);
-        }
-      }
-    }, 0);
-  },
-  logout: function() {
-    delete localStorage.token;
-  },
-  loggedIn: function() {
-    return !!localStorage.token;
-  }
-};
-
 var router = new VueRouter({
   routes: [
     {
@@ -136,7 +194,7 @@ var router = new VueRouter({
       component: UserList
     },
     {
-      path: "users/new",
+      path: "/users/new",
       component: UserCreate,
       beforeEnter: function(to ,from, next) {
         if (!Auth.loggedIn()) {
@@ -150,7 +208,7 @@ var router = new VueRouter({
       }
     },
     {
-      path: "users/:userId",
+      path: "/users/:userId",
       component: UserDetail
     },
     {
@@ -161,8 +219,12 @@ var router = new VueRouter({
       path: "/logout",
       beforeEnter: function(to, from, next) {
         Auth.logout();
-        next("/");
+        next("/top");
       }
+    },
+    {
+      path: "*",
+      redirect: "/top"
     }
   ]
 });

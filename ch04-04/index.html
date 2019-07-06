@@ -9,9 +9,12 @@
   <body>
 
     <div id="app">
-      <nav>
+      <nav v-cloak>
         <router-link to="/top">トップページ</router-link>
         <router-link to="/users">ユーザー一覧ページ</router-link>
+        <router-link to="/users/new?redirect=true">新規ユーザー登録</router-link>
+        <router-link to="/login" v-show="!Auth.loggedIn()">ログイン</router-link>
+        <router-link to="/logout" v-show="Auth.loggedIn()">ログアウト</router-link>
       </nav>
       <router-view></router-view>
     </div>
@@ -23,7 +26,7 @@
           {{ error }}
         </div>
         <div v-for="user in users" :key="user.id">
-          <h2>{{ user.name }}</h2>
+          <router-link :to="{ path: `/users/${user.id}` }">{{ user.name }}</router-link>
         </div>
       </div>
     </script>
@@ -52,7 +55,7 @@
           </div>
           <div>
             <label>説明文: </label>
-            <textarea v-modl="user.description"></textarea>
+            <textarea v-model="user.description"></textarea>
           </div>
           <div v-if="error" class="error">
             {{ error }}
@@ -64,11 +67,29 @@
       </div>
     </script>
 
-    <script src="common.js"></script>
-    <script src="user-list.js"></script>
+    <script type="text/x-template" id="login">
+      <div>
+        <h2>Login</h2>
+        <p v-if="$route.query.redirect">
+          ログインしてください
+        </p>
+        <form @submit.prevent="login">
+          <label><input v-model="email" placeholder="email"></label>
+          <label><input v-model="pass" placeholder="password" type="password"></label>
+          <br>
+          <button type="submit">ログイン</button>
+          <p v-if="error" class="error">ログインに失敗しました</p>
+        </form>
+      </div>
+    </script>
+
+    <script src="index.js"></script>
 
     <script>
       const app = new Vue({
+        data: {
+          Auth: Auth
+        },
         router: router
       }).$mount("#app");
     </script>
