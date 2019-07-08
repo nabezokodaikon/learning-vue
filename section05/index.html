@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue.js SPAのサンプルアプリケーション</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+  </head>
+  <body>
+
+    <div id="app">
+      <p>{{ message }}</p>
+      <ol>
+        <li v-for="item in list">{{ item }}</li>
+      </ol>
+      <button v-on:click="handleClick">Click</button>
+      <input v-model="message">
+      <p>{{ count }}</p>
+      <input v-model.number="count">
+      <button v-on:click="show=!show">切り替え</button>
+      <p v-if="show">Show</p>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
