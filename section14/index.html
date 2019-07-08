@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section14</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+
+    <div id="app" v-cloak>
+      <input v-model="message">
+      <p>{{ message }}</p>
+
+      <textarea v-model="message" cols="30" rows="10"></textarea>
+      <pre>{{ message }}</pre>
+
+      <div>
+        <label>
+          <input type="checkbox" v-model="val">{{ val }}
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input type="checkbox" v-model="val" true-value="yes" false-value="no">
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input type="checkbox" v-model="val" value="A"> A
+        </label>
+        <label>
+          <input type="checkbox" v-model="val" value="B"> B
+        </label>
+        <label>
+          <input type="checkbox" v-model="val" value="C"> C
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input type="radio" value="a" v-model="val"> A
+        </label>
+        <label>
+          <input type="radio" value="b" v-model="val"> B
+        </label>
+        <label>
+          <input type="radio" value="c" v-model="val"> C
+        </label>
+      </div>
+
+      <div>
+        <select v-model="val">
+          <option disabled="disabled">選択してください</option>
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+        </select>
+      </div>
+
+      <div>
+        <select v-model="val" multiple>
+          <option value="a">A</option>
+          <option value="b">B</option>
+          <option value="c">C</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="file" v-on:change="handleChange">
+        <div v-if="preview"><img v-bind:src="preview"></div>
+      </div>
+
+    </div>
+
+    <div id="app2">
+      <div>
+        <input type="range" v-model.number="val"> {{ val }}
+      </div>
+      <div>
+        <input type="text" v-model.number="price"> {{ price }}
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
