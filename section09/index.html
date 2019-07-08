@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section07</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+  </head>
+  <body>
+
+    <div id="app">
+      <p v-if="ok">v-if</p>
+      <p v-show="ok">v-show</p>
+
+      <template v-if="ok">
+        <header>タイトル</header>
+        <div>コンテンツ</div>
+      </template>
+
+      <div v-if="type === 'A'">
+        typeはA
+      </div>
+      <div v-else-if="type === 'B'">
+        typeはB
+      </div>
+      <div v-else>
+        すべての条件を満たさなかった
+      </div>
+
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
