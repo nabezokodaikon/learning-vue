@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section14</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+      <p>{{ width }} の半分は {{ halfWidth }}</p>
+      <p>X: {{ halfPoint.x }}</p>
+      <p>Y: {{ halfPoint.y }}</p>
+      <input v-model:number="width"> {{ width }}
+      <input v-model:number="height"> {{ height }}
+
+      <ol>
+        <li>{{ computedData }}</li>
+        <li>{{ computedData }}</li>
+      </ol>
+      <ol>
+        <li>{{ methodsData() }}</li>
+        <li>{{ methodsData() }}</li>
+      </ol>
+
+    </div>
+
+    <div id="app2">
+      <input v-model.number="budget"> 円以下に絞り込む
+      <input v-model.number="limit"> 件を表示
+      <p>{{ matched.length }} 件中 {{ limited.length }} 件を表示中</p>
+      <ul>
+        <li v-for="item in limited" v-bind:key="item.id">
+          {{ item.name }} {{ item.price }}円
+        </li>
+      </ul>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
