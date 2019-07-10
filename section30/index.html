@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section30</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.13/lodash.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+      <button v-on:click="order=!order">切り替え</button>
+      <transition-group tag="ul" class="list">
+        <li v-for="item in sortedList" v-bind:key="item.id">
+          {{ item.name }} {{ item.price }} 円
+        </li>
+      </transition-group>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
