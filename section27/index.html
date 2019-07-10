@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section27</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+      <button v-on:click="current^=1">toggle</button>
+      <div v-bind:is="component"></div>
+    </div>
+
+    <div id="app2">
+      <button v-on:click="current='comp-board'">メッセージ一覧</button>
+      <button v-on:click="current='comp-form'">投稿フォーム</button>
+      <keep-alive>
+        <div v-bind:is="current"></div>
+      </keep-alive>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
