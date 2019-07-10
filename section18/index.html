@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section18</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+      <p>{{ price | localeNum }}円</p>
+      <p>{{ "hello" | filter("bar", 100) }}</p>
+      <p>180度は {{ 180 | radian | round }} ラジアンだよ</p>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
