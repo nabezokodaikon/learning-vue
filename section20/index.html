@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section18</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+      <button v-on:click="list.push(list.length+1)">追加</button>
+      <ul ref="list">
+        <li v-for="item in list">{{ item }}</li>
+      </ul>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
