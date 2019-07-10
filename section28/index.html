@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Section28</title>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/vue@2.6.10"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+      <button v-on:click="show=!show">切り替え</button>
+      <transition appear>
+        <div v-show="show">トランジションさせたい要素</div>
+      </transition>
+    </div>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
