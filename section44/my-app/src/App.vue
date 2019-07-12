@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <p>{{ message }}</p>
+    <EditForm />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
+import EditForm from '@/components/EditForm.vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: 'app',
+  components: { EditForm },
+  computed: {
+    message() {
+      return this.$store.getters.message
+    }
   }
 }
 </script>
