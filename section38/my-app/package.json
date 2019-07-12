@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "y_shimoda <y_shimoda@denkiyagi.jp>",
+  "author": "shimoda_yusaku <y_shimoda@denkiyagi.jp>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
